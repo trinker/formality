@@ -8,7 +8,7 @@ Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://trav
 Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
 </p>
-<img src="inst/formality_logo/r_formality.png" width="200" alt="tagger Logo">
+<img src="inst/formality_logo/r_formality.png" width="300" alt="tagger Logo">
 
 **formality** is...
 
