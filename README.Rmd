@@ -16,8 +16,10 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg
 
 [![Build Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://travis-ci.org/trinker/formality)
 [![Coverage Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
-
 `r verbadge`
+
+<img src="inst/formality_logo/r_formality.png" width="200" alt="tagger Logo">  
+
 
 **formality** is...
 

@@ -6,9 +6,10 @@ formality
 Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://travis-ci.org/trinker/formality)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
-
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
 </p>
+<img src="inst/formality_logo/r_formality.png" width="200" alt="tagger Logo">
+
 **formality** is...
 
 
@@ -36,7 +37,7 @@ the development version:
 Contact
 =======
 
-You are welcome to: \* submit suggestions and bug-reports at:
-<https://github.com/trinker/formality/issues> \* send a pull request on:
-<https://github.com/trinker/formality/> \* compose a friendly e-mail to:
-<tyler.rinker@gmail.com>
+You are welcome to: 
+* submit suggestions and bug-reports at: <https://github.com/trinker/formality/issues> 
+* send a pull request on: <https://github.com/trinker/formality/> 
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
