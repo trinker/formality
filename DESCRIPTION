@@ -1,10 +1,10 @@
 Package: formality
-Title: What the Package Does (one line)
+Title: Calculate Text Formality
 Version: 0.0.1
 Authors@R: c(person("Tyler", "Rinker", email =
         "tyler.rinker@gmail.com", role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
-Description: What the package does (one paragraph)
+Description: Calculate the formality of text based on part of speech tags.
 Depends: R (>= 3.2.2)
 Imports: data.table, tagger
 Suggests: testthat
