@@ -33,15 +33,15 @@ Where:
 *N* = *n*<sub>*f*</sub> + *n*<sub>*c*</sub>
 
 -   Heylighen, F. (1999). Advantages and limitations of formal
-    expression. Foundations of Science, 4, 25â<U+0080><U+0093>56.
+    expression. Foundations of Science, 4, 25-56.
     [<doi:10.1023/A:1009686703349>](http://link.springer.com/article/10.1023%2FA%3A1009686703349)
 -   Heylighen, F. & Dewaele, J.-M. (1999). Formality of language:
-    Deï¬nition, measurement and behavioral determinants. Center
-    â<U+0080><U+009C>Leo Apostelâ<U+0080>, Free University of Brussels.
-    Retrieved from
+    Definition, measurement and behavioral determinants. Center "Leo
+    Apostel", Free University of Brussels. Retrieved from
+    [<http://pespmc1.vub.ac.be/Papers/Formality.pdf>](http://pespmc1.vub.ac.be/Papers/Formality.pdf)
 -   Heylighen, F. & Dewaele, J.-M. (2002). Variation in the
     contextuality of language: An empirical measure. Foundations of
-    Science, 7(3), 293â<U+0080><U+0093>340.
+    Science, 7(3), 293-340.
     [<doi:10.1023/A:1019661126744>](http://link.springer.com/article/10.1023%2FA%3A1019661126744)
 
 
