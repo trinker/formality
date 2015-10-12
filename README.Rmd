@@ -22,7 +22,9 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg
 <img src="inst/formality_logo/r_formality.png" width="300" alt="tagger Logo">  
 
 
-**formality** utilizes the [**tagger**](https://github.com/trinker/tagger) package to conduct formality analysis.  Heylighen (1999) and Heylighen & Dewaele (2002, 1999) have given the *F-measure* as a measure of how *contextual* or *formal* language is.  Language is considered formal when it contains much of the information directly in the text, whereas, contextual language relies on shared experiences to more eficiently dialogue with others.  The *F-measure* is defined formally as:
+**formality** utilizes the [**tagger**](https://github.com/trinker/tagger) package to conduct formality analysis.  Heylighen (1999) and Heylighen & Dewaele (2002, 1999) have given the *F-measure* as a measure of how *contextual* or *formal* language is.  Language is considered formal when it contains much of the information directly in the text, whereas, contextual language relies on shared experiences to more eficiently dialogue with others.  
+
+The **formality** package's main function is also titled `formality` and uses Heylighen & Dewaele's (1999) *F-measure*.  The *F-measure* is defined formally as:
 
 $$F = 50(((n_f - n_c)/N) + 1)$$
 
@@ -31,6 +33,8 @@ Where:
 $$f = \{noun, adjective, preposition, article\}$$    
 $$c = \{pronoun, verb, adverb, interjection\}$$    
 $$N = n_f + n_c$$     
+
+Please see the following references for more details about formality and the *F-measure*:
 
 - Heylighen, F. (1999). Advantages and limitations of formal expression. Foundations of Science, 4, 25-56. <a href="http://link.springer.com/article/10.1023%2FA%3A1009686703349">doi:10.1023/A:1009686703349</a>
 

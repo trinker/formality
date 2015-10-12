@@ -20,7 +20,11 @@ formality analysis. Heylighen (1999) and Heylighen & Dewaele (2002,
 *formal* language is. Language is considered formal when it contains
 much of the information directly in the text, whereas, contextual
 language relies on shared experiences to more eficiently dialogue with
-others. The *F-measure* is defined formally as:
+others.
+
+The **formality** package's main function is also titled `formality` and
+uses Heylighen & Dewaele's (1999) *F-measure*. The *F-measure* is
+defined formally as:
 
 *F* = 50(((*n*<sub>*f*</sub> − *n*<sub>*c*</sub>)/*N*) + 1)
 
@@ -31,6 +35,9 @@ Where:
 *c* = {*p**r**o**n**o**u**n*, *v**e**r**b*, *a**d**v**e**r**b*, *i**n**t**e**r**j**e**c**t**i**o**n*}
   
 *N* = *n*<sub>*f*</sub> + *n*<sub>*c*</sub>
+
+Please see the following references for more details about formality and
+the *F-measure*:
 
 -   Heylighen, F. (1999). Advantages and limitations of formal
     expression. Foundations of Science, 4, 25-56.
