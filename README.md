@@ -19,7 +19,7 @@ formality analysis. Heylighen (1999) and Heylighen & Dewaele (2002,
 1999) have given the *F-measure* as a measure of how *contextual* or
 *formal* language is. Language is considered formal when it contains
 much of the information directly in the text, whereas, contextual
-language relies on shared experiences to more eficiently dialogue with
+language relies on shared experiences to more efficiently dialogue with
 others.
 
 The **formality** package's main function is also titled `formality` and
