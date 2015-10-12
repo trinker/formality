@@ -36,13 +36,16 @@ Where:
   
 *N* = *n*<sub>*f*</sub> + *n*<sub>*c*</sub>
 
+This yields an *F-measure* between 0 and 100%, with completely
+contextualizes language on the zero end and completely formal language
+on the 100 end.
+
 Please see the following references for more details about formality and
 the *F-measure*:
 
 -   Heylighen, F. (1999). Advantages and limitations of formal
     expression. Foundations of Science, 4, 25-56.
     <a href="http://link.springer.com/article/10.1023%2FA%3A1009686703349">doi:10.1023/A:1009686703349</a>
-
 -   Heylighen, F. & Dewaele, J.-M. (1999). Formality of language:
     Definition, measurement and behavioral determinants. Center "Leo
     Apostel", Free University of Brussels. Retrieved from

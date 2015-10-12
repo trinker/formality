@@ -19,6 +19,11 @@ Where:
 \deqn{f = \left \{noun, \;adjective, \;preposition, \;article\right \}}{f = {noun,adjective, preposition, article}}
 \deqn{c = \left \{pronoun, \;verb, \;adverb, \;interjection\right \}}{c = {pronoun, verb, adverb, interjection}}
 \deqn{N = \sum{(n_{f}\;+ \;n_{c})}}{N = \sum(f + c)}
+
+This yields an \emph{F-measure} between \eqn{0} and \eqn{100}\%, with
+completely contextualizes language on the zero end and completely formal
+language on the \eqn{100} end.
+
 Please see the following resources for additional information:
 
 \itemize{
