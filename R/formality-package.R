@@ -1,6 +1,23 @@
-#' What the Package Does (one line)
+#' Calculate Text Formality
 #'
-#' What the package does (one or more paragraphs)
+#' The \pkg{formality} package's main function is also titled \code{formality}
+#' and uses Heylighen & Dewaele's (1999) \emph{F-measure}.  The \emph{F-measure}
+#' is defined formally as:
+#'
+#' \deqn{F = 50(\frac{n_{f}-n_{c}}{N} + 1)}{F = 50(n_f-n_c/N + 1)}
+#'
+#' Where:
+#'
+#' \deqn{f = \left \{noun, \;adjective, \;preposition, \;article\right \}}{f = {noun,adjective, preposition, article}}
+#' \deqn{c = \left \{pronoun, \;verb, \;adverb, \;interjection\right \}}{c = {pronoun, verb, adverb, interjection}}
+#' \deqn{N = \sum{(n_{f}\;+ \;n_{c})}}{N = \sum(f + c)}
+#' Please see the following resources for additional information:
+#'
+#' \itemize{
+#' \item Heylighen, F. (1999). Advantages and limitations of formal expression. doi:10.1023/A:1009686703349
+#' \item Heylighen, F. & Dewaele, J.-M. (1999). Formality of language: Definition, measurement and behavioral determinants. Center "Leo Apostel", Free University of Brussels. Retrieved from \url{http://pespmc1.vub.ac.be/Papers/Formality.pdf}
+#' \item Heylighen, F. & Dewaele, J.-M. (2002). Variation in the contextuality of language: An empirical measure. \emph{Foundations of Science}, 7(3), 293-340. doi:10.1023/A:1019661126744
+#' }
 #' @docType package
 #' @name formality
 #' @aliases formality package-formality

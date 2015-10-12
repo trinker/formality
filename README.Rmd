@@ -37,7 +37,6 @@ $$N = n_f + n_c$$
 Please see the following references for more details about formality and the *F-measure*:
 
 - Heylighen, F. (1999). Advantages and limitations of formal expression. Foundations of Science, 4, 25-56. <a href="http://link.springer.com/article/10.1023%2FA%3A1009686703349">doi:10.1023/A:1009686703349</a>
-
 - Heylighen, F. & Dewaele, J.-M. (1999). Formality of language: Definition, measurement and behavioral determinants. Center "Leo Apostel", Free University of Brussels. Retrieved from [http://pespmc1.vub.ac.be/Papers/Formality.pdf](http://pespmc1.vub.ac.be/Papers/Formality.pdf)
 - Heylighen, F. & Dewaele, J.-M. (2002). Variation in the contextuality of language: An empirical measure. Foundations of Science, 7(3), 293-340. <a href="http://link.springer.com/article/10.1023%2FA%3A1019661126744">doi:10.1023/A:1019661126744</a>
 
