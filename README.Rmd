@@ -28,8 +28,8 @@ $$F = 50(((n_f - n_c)/N) + 1)$$
 
 Where:
 
-$$f = {noun, adjective, preposition, article}$$    
-$$c = {pronoun, verb, adverb, interjection}$$    
+$$f = \{noun, adjective, preposition, article\}$$    
+$$c = \{pronoun, verb, adverb, interjection\}$$    
 $$N = n_f + n_c$$     
 
 - Heylighen, F. (1999). Advantages and limitations of formal expression. Foundations of Science, 4, 25–56. [doi:10.1023/A:1009686703349    ](http://link.springer.com/article/10.1023%2FA%3A1009686703349)
