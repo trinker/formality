@@ -17,7 +17,7 @@ Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](h
 [**tagger**](https://github.com/trinker/tagger) package to conduct
 formality analysis. Heylighen (1999) and Heylighen & Dewaele (2002,
 1999) have given the *F-measure* as a measure of how *contextual* or
-*formal* language is. Language is considered formal when it contains
+*formal* language is. Language is considered more formal when it contains
 much of the information directly in the text, whereas, contextual
 language relies on shared experiences to more efficiently dialogue with
 others.
@@ -37,7 +37,7 @@ Where:
 *N* = *n*<sub>*f*</sub> + *n*<sub>*c*</sub>
 
 This yields an *F-measure* between 0 and 100%, with completely
-contextualizes language on the zero end and completely formal language
+contextualized language on the zero end and completely formal language
 on the 100 end.
 
 Please see the following references for more details about formality and
