@@ -119,7 +119,7 @@ formality.default <- function(text.var, grouping.var = NULL, order.by.formality 
         data.table::setorder(out, -F)
     }
 
-    class(out) <- c("formality", class(out))
+    class(out) <- c("Formality", class(out))
     attributes(out)[["group.vars"]] <- G
     attributes(out)[["pos.vars"]] <- cols
     attributes(out)[["counts"]] <- formality_counts
@@ -129,8 +129,8 @@ formality.default <- function(text.var, grouping.var = NULL, order.by.formality 
 
 
 #' @export
-#' @method formality formality
-formality.formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
+#' @method formality Formality
+formality.Formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
 
     .SD <- n <- F <- NULL
 
@@ -184,7 +184,7 @@ formality.formality <- function(text.var, grouping.var = NULL, order.by.formalit
         data.table::setorder(out, -F)
     }
 
-    class(out) <- c("formality", class(out))
+    class(out) <- c("Formality", class(out))
     attributes(out)[["group.vars"]] <- G
     attributes(out)[["pos.vars"]] <- attributes(text.var)[["pos.vars"]]
     attributes(out)[["counts"]] <- attributes(text.var)[["counts"]][["counts"]]
