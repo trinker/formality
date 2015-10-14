@@ -24,6 +24,8 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg
 
 **formality** utilizes the [**tagger**](https://github.com/trinker/tagger) package to conduct formality analysis.  Heylighen (1999) and Heylighen & Dewaele (2002, 1999) have given the *F-measure* as a measure of how *contextual* or *formal* language is.  Language is considered more formal when it contains much of the information directly in the text, whereas, contextual language relies on shared experiences to more efficiently dialogue with others.  
 
+# Formality Equation
+
 The **formality** package's main function is also titled `formality` and uses Heylighen & Dewaele's (1999) *F-measure*.  The *F-measure* is defined formally as:
 
 $$F = 50(((n_f - n_c)/N) + 1)$$
@@ -54,7 +56,11 @@ Download the [zip ball](https://github.com/trinker/formality/zipball/master) or 
 
 ```r
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load_gh("trinker/formality")
+pacman::p_load_gh(c(
+    "trinker/termco", 
+    "trinker/tagger", 
+    "trinker/formality"
+))
 ```
 
 # Contact
@@ -63,3 +69,38 @@ You are welcome to:
 * submit suggestions and bug-reports at: <https://github.com/trinker/formality/issues>
 * send a pull request on: <https://github.com/trinker/formality/>
 * compose a friendly e-mail to: <tyler.rinker@gmail.com>
+
+
+# Examples
+
+The following examples demonstrate some of the functionality of **formality**.
+
+## Load the Tools/Data
+
+```{r}
+library(formality)
+data(presidential_debates_2012)
+```
+
+
+## Assessing Formality
+
+`formality` takes the text as `text.var` and any number of grouping variables as `grouping.var`.  Here we use the `presidential_debates_2012` data set and look at the formality of the people involved.  Note that for smaller text Heylighen & Dewaele (2002) state: 
+
+> At present, a sample would probably need to contain a few hundred words for the measure to be minimally reliable. For single sentences, the F-value should only be computed for purposes of illustration" (p. 24).
+
+```{r}
+form1 <- with(presidential_debates_2012, formality(dialogue, person))
+form1
+```
+
+## Recycling the First Run
+
+This will take ~20 seconds because of the part of speech tagging that must be undertaken.  The output can be reused as `text.var` cutting the time to a fraction of the first run.
+
+
+```{r}
+with(presidential_debates_2012, formality(form1, list(time, person)))
+```
+
+
