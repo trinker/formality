@@ -270,7 +270,7 @@ plot.Formality <- function(x, plot = TRUE, ...){
         ggplot2::geom_point(ggplot2::aes_string(size="n"), alpha=.22) +
         ggplot2::scale_size(range=c(1, 7), name = "Text\nLength") +
         ggplot2::geom_point(ggplot2::aes_string(color="warn"), size=1.5) +
-        ggplot2::scale_color_manual(values=c("black", "red"), guide=FALSE) +
+        ggplot2::scale_color_manual(values=c("black", "red"), guide=FALSE, drop=FALSE) +
         ggplot2::ylab(NULL) +
         ggplot2::xlab("F Measure") +
         ggplot2::theme_bw() +
