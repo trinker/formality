@@ -234,7 +234,7 @@ plot.Formality <- function(x, plot = TRUE, ...){
         'group.vars' := eval(parse(text=express2))][,
         'group.vars' := factor(group.vars, levels=rev(group.vars))][,
         c("group.vars", "n", "F"), with = FALSE][,
-        warn := ifelse(n > 300, FALSE, TRUE)]
+        warn := factor(ifelse(n > 300, FALSE, TRUE), levels = c(TRUE, FALSE))]
 
     ## prepare the contectual/formal data
     con_form_dat <- x[, c(grps, "contextual", "formal", "n"), with=FALSE][,
