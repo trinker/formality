@@ -39,6 +39,9 @@
 #' data(presidential_debates_2012)
 #' (form1 <- with(presidential_debates_2012, formality(dialogue, person)))
 #' with(presidential_debates_2012, formality(form1, list(person, time))) #recycle form 1 for speed
+#'
+#' plot(form1)
+#' plot(with(presidential_debates_2012, formality(form1, list(person, time))))
 formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
 
     UseMethod("formality")
@@ -83,8 +86,8 @@ formality.default <- function(text.var, grouping.var = NULL, order.by.formality 
         }
     }
 
-    formal <- c('noun', 'adjective', 'preposition', 'article')
-    contextual <- c('pronoun', 'verb', 'adverb', 'interjection')
+    formal <- c('noun', 'preposition', 'adjective', 'article')
+    contextual <- c('verb', 'pronoun', 'adverb', 'interjection')
 
     ## in other version this will be extracted
     #=============================================
@@ -166,8 +169,8 @@ formality.Formality <- function(text.var, grouping.var = NULL, order.by.formalit
         }
     }
 
-    formal <- c('noun', 'adjective', 'preposition', 'article')
-    contextual <- c('pronoun', 'verb', 'adverb', 'interjection')
+    formal <- c('noun', 'preposition', 'adjective', 'article')
+    contextual <- c('verb', 'pronoun', 'adverb', 'interjection')
 
     counts <- attributes(text.var)[["counts"]][["counts"]]
 
@@ -191,3 +194,130 @@ formality.Formality <- function(text.var, grouping.var = NULL, order.by.formalit
     out
 
 }
+
+
+
+#' Plots a Formality Object
+#'
+#' Plots a Formality object.
+#'
+#' @param x The Formality object
+#' @param plot logical.  If \code{TRUE} the output is plotted.
+#' @param \ldots ignored.
+#' @return Returns a list of the three \pkg{ggplot2} objects that make the
+#' combined plot.
+#' @importFrom data.table :=
+#' @method plot Formality
+#' @export
+plot.Formality <- function(x, plot = TRUE, ...){
+
+    group.vars <- n <- warn <- contextual <- formal <- type <- NULL
+
+    grps <- attr(x, "group.var")
+    pos <- attr(x, "pos.vars")
+
+    ## Prepare the pos data
+    express1 <- paste0("lapply(list(", paste(pos, collapse=","), "), function(y) as.numeric(y/n))")
+    express2 <- paste0("paste(", paste(grps, collapse=", "), ", sep = \"_\")")
+    pos_dat <- x[, c(grps, pos, "n"), with=FALSE][,
+        (pos) := eval(parse(text=express1))][,
+        'group.vars' := eval(parse(text=express2))][,
+        'group.vars' := factor(group.vars, levels=rev(group.vars))][,
+        c(pos, "n", "group.vars"), with = FALSE]
+
+    pos_dat_long <- data.table::melt(pos_dat, id = c("group.vars", "n"),
+        variable.name = "pos", value.name = "proportion")[,
+        pos := factor(pos, levels = attr(x, "pos.vars"))]
+
+    ## prepare the formality data
+    form_dat <- x[, c(grps, "n", "F"), with=FALSE][,
+        'group.vars' := eval(parse(text=express2))][,
+        'group.vars' := factor(group.vars, levels=rev(group.vars))][,
+        c("group.vars", "n", "F"), with = FALSE][,
+        warn := ifelse(n > 300, FALSE, TRUE)]
+
+    ## prepare the contectual/formal data
+    con_form_dat <- x[, c(grps, "contextual", "formal", "n"), with=FALSE][,
+        (c("contextual", "formal")) := list(contextual/n, formal/n)][,
+        'group.vars' := eval(parse(text=express2))][,
+        'group.vars' := factor(group.vars, levels=rev(group.vars))][,
+        c("contextual", "formal", "n", "group.vars"), with = FALSE]
+
+    con_form_long <- data.table::melt(con_form_dat, id = c("group.vars", "n"),
+        variable.name = "type", value.name = "proportion")[,
+        type := factor(type, levels = c("formal", "contextual"))]
+
+    con_form_plot <- ggplot2::ggplot(con_form_long,
+        ggplot2::aes_string(x = "group.vars", weight = "proportion", fill ="type")) +
+        ggplot2::geom_bar() +
+        ggplot2::coord_flip() +
+        ggplot2::xlab(NULL) +
+        ggplot2::ylab("") +
+        ggplot2::theme_bw() +
+        ggplot2::theme(
+            panel.grid = ggplot2::element_blank(),
+            #legend.position="bottom",
+            legend.title = ggplot2::element_blank(),
+            panel.border = ggplot2::element_blank(),
+            axis.line = ggplot2::element_line(color="grey70")
+        ) +
+        ggplot2::scale_y_continuous(labels=function(x) paste0(round(x*100, 0), "%"),
+           expand = c(0,0)) +
+        ggplot2::scale_fill_manual(values=pals[c(2, 6), 2])
+
+    form_plot <- ggplot2::ggplot(form_dat,
+        ggplot2::aes_string(y = "group.vars", x = "F")) +
+        ggplot2::geom_point(ggplot2::aes_string(size="n"), alpha=.22) +
+        ggplot2::scale_size(range=c(1, 7), name = "Text\nLength") +
+        ggplot2::geom_point(ggplot2::aes_string(color="warn"), size=1.5) +
+        ggplot2::scale_color_manual(values=c("black", "red"), guide=FALSE) +
+        ggplot2::ylab(NULL) +
+        ggplot2::xlab("F Measure") +
+        ggplot2::theme_bw() +
+        ggplot2::theme(
+            #legend.position="bottom",
+            axis.title.x = ggplot2::element_text(size=11),
+            #legend.title = ggplot2::element_blank(),
+            panel.border = ggplot2::element_blank(),
+            axis.line = ggplot2::element_line(color="grey70")
+        )
+
+     pos_heat_plot <- ggplot2::ggplot(pos_dat_long,
+        ggplot2::aes_string(y = "group.vars", x = "pos", fill="proportion")) +
+        ggplot2::geom_tile() +
+        ggplot2::scale_fill_gradient(
+            labels=function(x) paste0(round(x*100, 0), "%"),
+            high="#BF812D",
+            low="white",
+            name = ggplot2::element_blank()
+        )+
+        ggplot2::ylab(NULL) +
+        ggplot2::xlab("Part of Speech") +
+        ggplot2::theme_bw() +
+        ggplot2::theme(
+            panel.grid = ggplot2::element_blank(),
+            #legend.position="bottom",
+            axis.title.x = ggplot2::element_text(size=11),
+            legend.title = ggplot2::element_blank(),
+            panel.border = ggplot2::element_rect(color="grey88")
+        ) +
+        ggplot2::guides(fill = ggplot2::guide_colorbar(barwidth = .5, barheight = 10)) #+
+        #ggplot2::guides(fill = ggplot2::guide_colorbar(barwidth = 14, barheight = .5))
+
+    plotout1 <- gridExtra::arrangeGrob(con_form_plot, form_plot,
+        widths = grid::unit(c(.5, .5), "native"), ncol=2)
+
+    plotout2 <- gridExtra::arrangeGrob(plotout1, pos_heat_plot, ncol=1)
+    if (isTRUE(plot)) gridExtra::grid.arrange(plotout2)
+    return(invisible(list(formality = form_plot, contextual_formal = con_form_plot, pos = pos_heat_plot)))
+}
+
+
+pals <- structure(list(pos = c("noun", "adjective", "preposition", "article",
+    "pronoun", "verb", "adverb", "interjection"), cols = c("#8C510A",
+    "#BF812D", "#DFC27D", "#F6E8C3", "#C7EAE5", "#80CDC1", "#35978F",
+    "#01665E")), .Names = c("pos", "cols"), row.names = c(NA, -8L
+    ), class = "data.frame")
+
+
+

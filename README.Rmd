@@ -6,7 +6,8 @@ output:
     toc: true      
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
 desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
 loc <- grep(regex, desc)
@@ -14,7 +15,17 @@ ver <- gsub(regex, "\\2", desc[loc])
 verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 ````
 
-[![Project Status: Wip - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
+```{r, echo=FALSE}
+knit_hooks$set(htmlcap = function(before, options, envir) {
+  if(!before) {
+    paste('<p class="caption"><b><em>',options$htmlcap,"</em></b></p>",sep="")
+    }
+    })
+knitr::opts_knit$set(self.contained = TRUE, cache = FALSE)
+knitr::opts_chunk$set(fig.path = "inst/figure/")
+```
+
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://travis-ci.org/trinker/formality)
 [![Coverage Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
 `r verbadge`
@@ -103,4 +114,16 @@ This will take ~20 seconds because of the part of speech tagging that must be un
 with(presidential_debates_2012, formality(form1, list(time, person)))
 ```
 
+## Plotting
 
+The generic `plot` function provides three views of the data:
+
+1. A filled bar plot of formal vs. contextual usage
+2. A dotplot of formality\*\*
+3. A heatmap of the usage of the parts of speech used to calculate the formality score
+
+\*\****Note*** *red dot in center is a warning of less than 300 words*
+
+```{r}
+plot(form1)
+````

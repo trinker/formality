@@ -49,6 +49,9 @@ purposes of illustration" (p. 24).
 data(presidential_debates_2012)
 (form1 <- with(presidential_debates_2012, formality(dialogue, person)))
 with(presidential_debates_2012, formality(form1, list(person, time))) #recycle form 1 for speed
+
+plot(form1)
+plot(with(presidential_debates_2012, formality(form1, list(person, time))))
 }
 \references{
 Heylighen, F. (1999). Advantages and limitations of formal expression. doi:10.1023/A:1009686703349 \cr \cr

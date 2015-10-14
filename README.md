@@ -2,9 +2,9 @@ formality
 ============
 
 
-[![Project Status: Wip - Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](http://www.repostatus.org/badges/0.1.0/wip.svg)](http://www.repostatus.org/#wip)
+[![Project Status: Active - The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Build
 Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://travis-ci.org/trinker/formality)
 [![Coverage
@@ -33,6 +33,7 @@ Table of Contents
     -   [Load the Tools/Data](#load-the-toolsdata)
     -   [Assessing Formality](#assessing-formality)
     -   [Recycling the First Run](#recycling-the-first-run)
+    -   [Plotting](#plotting)
 
 Formality Equation
 ============
@@ -126,13 +127,13 @@ smaller text Heylighen & Dewaele (2002) state:
     form1 <- with(presidential_debates_2012, formality(dialogue, person))
     form1
 
-    ##       person noun adjective preposition article pronoun verb adverb
-    ## 1:  QUESTION  155        70          91      38      77  112     26
-    ## 2:    LEHRER  182        93         104      62     101  164     48
-    ## 3: SCHIEFFER  347       176         209     102     211  342     69
-    ## 4:    ROMNEY 4406      2346        3178    1396    2490 4676   1315
-    ## 5:     OBAMA 3993      1935        2909    1070    2418 4593   1398
-    ## 6:   CROWLEY  387       135         269     104     249  405    134
+    ##       person noun preposition adjective article verb pronoun adverb
+    ## 1:  QUESTION  155          91        70      38  112      77     26
+    ## 2:    LEHRER  182         104        93      62  164     101     48
+    ## 3: SCHIEFFER  347         209       176     102  342     211     69
+    ## 4:    ROMNEY 4406        3178      2346    1396 4676    2490   1315
+    ## 5:     OBAMA 3993        2909      1935    1070 4593    2418   1398
+    ## 6:   CROWLEY  387         269       135     104  405     249    134
     ##    interjection formal contextual     n        F
     ## 1:            4    354        219   573 61.78010
     ## 2:            8    441        321   762 57.87402
@@ -150,17 +151,17 @@ time to a fraction of the first run.
 
     with(presidential_debates_2012, formality(form1, list(time, person)))
 
-    ##       time    person noun adjective preposition article pronoun verb
-    ##  1: time 2  QUESTION  155        70          91      38      77  112
-    ##  2: time 1    LEHRER  182        93         104      62     101  164
-    ##  3: time 1    ROMNEY  950       483         642     286     504  978
-    ##  4: time 3    ROMNEY 1766       958        1388     617    1029 1920
-    ##  5: time 3 SCHIEFFER  347       176         209     102     211  342
-    ##  6: time 2    ROMNEY 1690       905        1148     493     957 1778
-    ##  7: time 3     OBAMA 1546       741        1185     432     973 1799
-    ##  8: time 1     OBAMA  792       357         579     219     452  925
-    ##  9: time 2     OBAMA 1655       837        1145     419     993 1869
-    ## 10: time 2   CROWLEY  387       135         269     104     249  405
+    ##       time    person noun preposition adjective article verb pronoun
+    ##  1: time 2  QUESTION  155          91        70      38  112      77
+    ##  2: time 1    LEHRER  182         104        93      62  164     101
+    ##  3: time 1    ROMNEY  950         642       483     286  978     504
+    ##  4: time 3    ROMNEY 1766        1388       958     617 1920    1029
+    ##  5: time 3 SCHIEFFER  347         209       176     102  342     211
+    ##  6: time 2    ROMNEY 1690        1148       905     493 1778     957
+    ##  7: time 3     OBAMA 1546        1185       741     432 1799     973
+    ##  8: time 1     OBAMA  792         579       357     219  925     452
+    ##  9: time 2     OBAMA 1655        1145       837     419 1869     993
+    ## 10: time 2   CROWLEY  387         269       135     104  405     249
     ##     adverb interjection formal contextual    n        F
     ##  1:     26            4    354        219  573 61.78010
     ##  2:     48            8    441        321  762 57.87402
@@ -172,3 +173,19 @@ time to a fraction of the first run.
     ##  8:    281            2   1947       1660 3607 53.97838
     ##  9:    595            7   4056       3464 7520 53.93617
     ## 10:    134            0    895        788 1683 53.17885
+
+Plotting
+--------
+
+The generic `plot` function provides three views of the data:
+
+1.  A filled bar plot of formal vs. contextual usage
+2.  A dotplot of formality\*\*
+3.  A heatmap of the usage of the parts of speech used to calculate the
+    formality score
+
+\*\****Note*** *red dot in center is a warning of less than 300 words*
+
+    plot(form1)
+
+![](inst/figure/unnamed-chunk-6-1.png)

@@ -6,7 +6,7 @@ Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = 
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Calculate the formality of text based on part of speech tags.
 Depends: R (>= 3.2.2)
-Imports: data.table, tagger
+Imports: data.table, ggplot2, gridExtra, grid, tagger
 Suggests: testthat
 Date: 2015-10-13
 License: GPL-2
