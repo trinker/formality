@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<major>.<minor>.<patch>
+&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;
 
 And constructed with the following guidelines:
 
@@ -16,22 +16,8 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-formality 0.1.0
-----------------------------------------------------------------
-
-BUG FIXES
-
-NEW FEATURES
-
-MINOR FEATURES
-
-IMPROVEMENTS
-
-CHANGES
-
-
 
 formality 0.0.1
 ----------------------------------------------------------------
 
-This package calculates the formality of text based on part of speech tags.
+This package calculates the <a href="https://github.com/trinker/formality" target="_blank">formality</a> of text based on part of speech tags.
