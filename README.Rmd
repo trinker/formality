@@ -107,7 +107,7 @@ form1
 
 ## Recycling the First Run
 
-This will take ~20 seconds because of the part of speech tagging that must be undertaken.  The output can be reused as `text.var` cutting the time to a fraction of the first run.
+This will take ~20 seconds because of the part of speech tagging that must be undertaken.  The output can be reused as `text.var`, cutting the time to a fraction of the first run.
 
 
 ```{r}
@@ -127,3 +127,36 @@ The generic `plot` function provides three views of the data:
 ```{r}
 plot(form1)
 ````
+
+
+The `plot` function uses **gridExtra** to stitch the plots together, which is plotted imediately.  However, the three subplots are actually returned as a list as seen below.
+
+```{r}
+names(plot(form1, plot=FALSE))
+```
+
+
+Each of these is a **ggplot2** object that can be further manipulated with various scales,  facets, and annotations.  I demonstrate some of this functionality in the plots below.
+
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+plot(form1, plot=FALSE)[[1]] +
+    scale_size(range= c(8, 45)) +
+    scale_x_continuous(limits = c(52, 63))
+
+
+plot(form1, plot=FALSE)[[2]] +
+    scale_fill_grey()
+
+plot(form1, plot=FALSE)[[2]] +
+    scale_fill_brewer(palette = "Pastel1") +
+    facet_grid(~type)
+
+plot(form1, plot=FALSE)[[3]] +
+    scale_fill_gradient(high = "red", low="white") +
+    ggtitle("Participant's Use of Parts of Speech")
+
+
+plot(form1, plot=FALSE)[[3]] +
+    scale_fill_gradient2(midpoint=.12, high = "red", low="blue")
+```

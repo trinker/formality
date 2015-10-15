@@ -146,7 +146,7 @@ Recycling the First Run
 -----------------------
 
 This will take ~20 seconds because of the part of speech tagging that
-must be undertaken. The output can be reused as `text.var` cutting the
+must be undertaken. The output can be reused as `text.var`, cutting the
 time to a fraction of the first run.
 
     with(presidential_debates_2012, formality(form1, list(time, person)))
@@ -189,3 +189,44 @@ The generic `plot` function provides three views of the data:
     plot(form1)
 
 ![](inst/figure/unnamed-chunk-6-1.png)
+
+The `plot` function uses **gridExtra** to stitch the plots together,
+which is plotted imediately. However, the three subplots are actually
+returned as a list as seen below.
+
+    names(plot(form1, plot=FALSE))
+
+    ## [1] "formality"         "contextual_formal" "pos"
+
+Each of these is a **ggplot2** object that can be further manipulated
+with various scales, facets, and annotations. I demonstrate some of this
+functionality in the plots below.
+
+    library(ggplot2)
+    plot(form1, plot=FALSE)[[1]] +
+        scale_size(range= c(8, 45)) +
+        scale_x_continuous(limits = c(52, 63))
+
+![](inst/figure/unnamed-chunk-8-1.png)
+
+    plot(form1, plot=FALSE)[[2]] +
+        scale_fill_grey()
+
+![](inst/figure/unnamed-chunk-8-2.png)
+
+    plot(form1, plot=FALSE)[[2]] +
+        scale_fill_brewer(palette = "Pastel1") +
+        facet_grid(~type)
+
+![](inst/figure/unnamed-chunk-8-3.png)
+
+    plot(form1, plot=FALSE)[[3]] +
+        scale_fill_gradient(high = "red", low="white") +
+        ggtitle("Participant's Use of Parts of Speech")
+
+![](inst/figure/unnamed-chunk-8-4.png)
+
+    plot(form1, plot=FALSE)[[3]] +
+        scale_fill_gradient2(midpoint=.12, high = "red", low="blue")
+
+![](inst/figure/unnamed-chunk-8-5.png)
