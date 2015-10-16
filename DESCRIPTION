@@ -9,7 +9,7 @@ Description: Calculate the formality of text based on part of speech
 Depends: R (>= 3.2.2)
 Imports: data.table, ggplot2, gridExtra, grid, tagger
 Suggests: testthat
-Date: 2015-10-14
+Date: 2015-10-15
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)

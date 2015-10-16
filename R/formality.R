@@ -287,7 +287,7 @@ plot.Formality <- function(x, plot = TRUE, ...){
         ggplot2::geom_tile() +
         ggplot2::scale_fill_gradient(
             labels=function(x) paste0(round(x*100, 0), "%"),
-            high="#BF812D",
+            high="#90A19E",
             low="white",
             name = ggplot2::element_blank()
         )+
@@ -299,10 +299,12 @@ plot.Formality <- function(x, plot = TRUE, ...){
             #legend.position="bottom",
             axis.title.x = ggplot2::element_text(size=11),
             legend.title = ggplot2::element_blank(),
-            panel.border = ggplot2::element_rect(color="grey88")
+            panel.border = ggplot2::element_rect(color="grey88"),
+            axis.text.x = ggplot2::element_text(colour=names(col_key)[match(col_key, pos)])
         ) +
         ggplot2::guides(fill = ggplot2::guide_colorbar(barwidth = .5, barheight = 10)) #+
         #ggplot2::guides(fill = ggplot2::guide_colorbar(barwidth = 14, barheight = .5))
+
 
     plotout1 <- gridExtra::arrangeGrob(con_form_plot, form_plot,
         widths = grid::unit(c(.5, .5), "native"), ncol=2)
@@ -319,5 +321,7 @@ pals <- structure(list(pos = c("noun", "adjective", "preposition", "article",
     "#01665E")), .Names = c("pos", "cols"), row.names = c(NA, -8L
     ), class = "data.frame")
 
+
+col_key <- setNames(pals[["pos"]], c(rep('#BF812D', 4), rep('#01665E', 4)))
 
 
