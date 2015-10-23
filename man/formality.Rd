@@ -4,7 +4,8 @@
 \alias{formality}
 \title{Formality Score}
 \usage{
-formality(text.var, grouping.var = NULL, order.by.formality = TRUE, ...)
+formality(text.var, grouping.var = NULL, order.by.formality = TRUE,
+  group.names, ...)
 }
 \arguments{
 \item{text.var}{The text string variable or another \code{formality} object.
@@ -17,6 +18,9 @@ used with a \code{seq_along} the \code{text.var}.}
 
 \item{order.by.formality}{logical.  If \code{TRUE} orders the results
 descending by formality score.}
+
+\item{group.names}{A vector of names that corresponds to group.  Generally
+for internal use.}
 
 \item{\ldots}{ignored.}
 }

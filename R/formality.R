@@ -10,6 +10,8 @@
 #' used with a \code{seq_along} the \code{text.var}.
 #' @param order.by.formality logical.  If \code{TRUE} orders the results
 #' descending by formality score.
+#' @param group.names A vector of names that corresponds to group.  Generally
+#' for internal use.
 #' @param \ldots ignored.
 #' @section Warning: Heylighen & Dewaele (2002) state, "At present, a sample would
 #' probably need to contain a few hundred words for the measure to be minimally
@@ -42,7 +44,8 @@
 #'
 #' plot(form1)
 #' plot(with(presidential_debates_2012, formality(form1, list(person, time))))
-formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
+formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE,
+    group.names, ...){
 
     UseMethod("formality")
 
@@ -50,7 +53,8 @@ formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, 
 
 #' @export
 #' @method formality default
-formality.default <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
+formality.default <- function(text.var, grouping.var = NULL,
+    order.by.formality = TRUE, group.names, ...){
 
     .SD <- n <- F <- NULL
 
@@ -84,6 +88,10 @@ formality.default <- function(text.var, grouping.var = NULL, order.by.formality 
                 grouping <- unlist(grouping.var)
             }
         }
+    }
+
+    if(!missing(group.names)) {
+        G <- group.names
     }
 
     formal <- c('noun', 'preposition', 'adjective', 'article')
@@ -133,7 +141,8 @@ formality.default <- function(text.var, grouping.var = NULL, order.by.formality 
 
 #' @export
 #' @method formality Formality
-formality.Formality <- function(text.var, grouping.var = NULL, order.by.formality = TRUE, ...){
+formality.Formality <- function(text.var, grouping.var = NULL,
+    order.by.formality = TRUE, group.names, ...){
 
     .SD <- n <- F <- NULL
 
@@ -167,6 +176,10 @@ formality.Formality <- function(text.var, grouping.var = NULL, order.by.formalit
                 grouping <- unlist(grouping.var)
             }
         }
+    }
+
+    if(!missing(group.names)) {
+        G <- group.names
     }
 
     formal <- c('noun', 'preposition', 'adjective', 'article')
