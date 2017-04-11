@@ -188,7 +188,7 @@ The generic `plot` function provides three views of the data:
 
     plot(form1)
 
-![](inst/figure/unnamed-chunk-6-1.png)
+![](tools/figure/unnamed-chunk-6-1.png)
 
 The `plot` function uses **gridExtra** to stitch the plots together,
 which is plotted imediately. However, the three subplots are actually
@@ -207,26 +207,26 @@ functionality in the plots below.
         scale_size(range= c(8, 45)) +
         scale_x_continuous(limits = c(52, 63))
 
-![](inst/figure/unnamed-chunk-8-1.png)
+![](tools/figure/unnamed-chunk-8-1.png)
 
     plot(form1, plot=FALSE)[[2]] +
         scale_fill_grey()
 
-![](inst/figure/unnamed-chunk-8-2.png)
+![](tools/figure/unnamed-chunk-8-2.png)
 
     plot(form1, plot=FALSE)[[2]] +
         scale_fill_brewer(palette = "Pastel1") +
         facet_grid(~type)
 
-![](inst/figure/unnamed-chunk-8-3.png)
+![](tools/figure/unnamed-chunk-8-3.png)
 
     plot(form1, plot=FALSE)[[3]] +
         scale_fill_gradient(high = "red", low="white") +
         ggtitle("Participant's Use of Parts of Speech")
 
-![](inst/figure/unnamed-chunk-8-4.png)
+![](tools/figure/unnamed-chunk-8-4.png)
 
     plot(form1, plot=FALSE)[[3]] +
         scale_fill_gradient2(midpoint=.12, high = "red", low="blue")
 
-![](inst/figure/unnamed-chunk-8-5.png)
+![](tools/figure/unnamed-chunk-8-5.png)
