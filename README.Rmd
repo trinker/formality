@@ -30,7 +30,7 @@ knitr::opts_chunk$set(fig.path = "inst/figure/")
 [![Coverage Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
 `r verbadge`
 
-<img src="inst/formality_logo/r_formality.png" width="300" alt="tagger Logo">  
+![](tools/formality_logo/r_formality.png)
 
 
 **formality** utilizes the [**tagger**](https://github.com/trinker/tagger) package to conduct formality analysis.  Heylighen (1999) and Heylighen & Dewaele (2002, 1999) have given the *F-measure* as a measure of how *contextual* or *formal* language is.  Language is considered more formal when it contains much of the information directly in the text, whereas, contextual language relies on shared experiences to more efficiently dialogue with others.  

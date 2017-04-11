@@ -14,7 +14,10 @@ inst/build.R
 README.Rmd
 README.R
 travis.yml
-inst/formality_logo
+tools/formality_logo/r_formalitya.png
+tools/formality_logo/r_formality.pptx
+tools/formality_logo/resize_icon.txt
+Thumbs.db
 inst/staticdocs
 inst/extra_statdoc
 inst/maintenance.R

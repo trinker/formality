@@ -1,4 +1,4 @@
-formality
+formality   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
 ============
 
 
@@ -11,7 +11,8 @@ Status](https://travis-ci.org/trinker/formality.svg?branch=master)](https://trav
 Status](https://coveralls.io/repos/trinker/formality/badge.svg?branch=master)](https://coveralls.io/r/trinker/formality?branch=master)
 <a href="https://img.shields.io/badge/Version-0.1.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"/></a>
 </p>
-<img src="inst/formality_logo/r_formality.png" width="300" alt="tagger Logo">
+
+![](tools/formality_logo/r_formality.png)
 
 **formality** utilizes the
 [**tagger**](https://github.com/trinker/tagger) package to conduct
@@ -22,28 +23,14 @@ contains much of the information directly in the text, whereas,
 contextual language relies on shared experiences to more efficiently
 dialogue with others.
 
-
-Table of Contents
-============
-
--   [Formality Equation](#formality-equation)
--   [Installation](#installation)
--   [Contact](#contact)
--   [Examples](#examples)
-    -   [Load the Tools/Data](#load-the-toolsdata)
-    -   [Assessing Formality](#assessing-formality)
-    -   [Recycling the First Run](#recycling-the-first-run)
-    -   [Plotting](#plotting)
-
 Formality Equation
-============
-
+==================
 
 The **formality** package's main function is also titled `formality` and
 uses Heylighen & Dewaele's (1999) *F-measure*. The *F-measure* is
 defined formally as:
 
-*F* = 50(((*n*<sub>*f*</sub> − *n*<sub>*c*</sub>)/*N*) + 1)
+*F* = 50(((*n*<sub>*f*</sub> − *n*<sub>*c*</sub>)/*N*)+1)
 
 Where:
 
@@ -60,20 +47,34 @@ on the 100 end.
 Please see the following references for more details about formality and
 the *F-measure*:
 
--   Heylighen, F. (1999). Advantages and limitations of formal
-    expression. Foundations of Science, 4, 25-56.
+-   Heylighen, F. (1999). Advantages and limitations of
+    formal expression. Foundations of Science, 4, 25-56.
     <a href="http://link.springer.com/article/10.1023%2FA%3A1009686703349">doi:10.1023/A:1009686703349</a>
 -   Heylighen, F. & Dewaele, J.-M. (1999). Formality of language:
     Definition, measurement and behavioral determinants. Center "Leo
     Apostel", Free University of Brussels. Retrieved from
-    [<http://pespmc1.vub.ac.be/Papers/Formality.pdf>](http://pespmc1.vub.ac.be/Papers/Formality.pdf)
+    <http://pespmc1.vub.ac.be/Papers/Formality.pdf>
 -   Heylighen, F. & Dewaele, J.-M. (2002). Variation in the
     contextuality of language: An empirical measure. Foundations of
     Science, 7(3), 293-340.
     <a href="http://link.springer.com/article/10.1023%2FA%3A1019661126744">doi:10.1023/A:1019661126744</a>
 
+
+Table of Contents
+============
+
+-   [Formality Equation](#formality-equation)
+-   [Installation](#installation)
+-   [Contact](#contact)
+-   [Examples](#examples)
+    -   [Load the Tools/Data](#load-the-toolsdata)
+    -   [Assessing Formality](#assessing-formality)
+    -   [Recycling the First Run](#recycling-the-first-run)
+    -   [Plotting](#plotting)
+
 Installation
 ============
+
 
 To download the development version of **formality**:
 
@@ -93,11 +94,10 @@ the development version:
 Contact
 =======
 
-You are welcome to: 
-* submit suggestions and bug-reports at: <https://github.com/trinker/formality/issues> 
-* send a pull request on: <https://github.com/trinker/formality/> 
-* compose a friendly e-mail to: <tyler.rinker@gmail.com>
-
+You are welcome to:    
+- submit suggestions and bug-reports at: <https://github.com/trinker/formality/issues>    
+- send a pull request on: <https://github.com/trinker/formality/>    
+- compose a friendly e-mail to: <tyler.rinker@gmail.com>    
 
 Examples
 ========
